@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ttms # pod name
+  labels:
+    app: ttms # pod label
+spec:
+  containers:
+    - name: ttms
+      image: public.ecr.aws/subbaram/ttms:1.0
+      ports:
+        - containerPort: 80
