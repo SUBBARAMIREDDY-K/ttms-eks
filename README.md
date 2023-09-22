@@ -1,4 +1,4 @@
-## Deployment with Kubernetes
+## Kubernetes
 
 This Timetable Management System is designed to run within a Kubernetes cluster, which provides scalability and reliability. The application is deployed and managed using various Kubernetes resources:
 
