@@ -1,7 +1,7 @@
 apiVersion: apps/v1
-kind: ReplicaSet
+kind: Deployment
 metadata:
-  name: ttms-rs
+  name: ttms-deployment
   labels:
     app: ttms
 spec:
@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: ttms-container
-          image: princeram/ttms:latest
+          image: princeram/timetable:latest
           ports:
             - containerPort: 80
           env:
