@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ttms-config
+  labels:
+    app: ttms
+data:
+  HOST: timetable.cioc56gyzvic.ap-south-1.rds.amazonaws.com
+  USER: admin
+  PASSWORD: Ram12345
+  DB: timetable

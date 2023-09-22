@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ttms-deployment-configmap
+  labels:
+    app: ttms
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ttms
+  template:
+    metadata:
+      name: ttms-pod
+      labels:
+        app: ttms
+    spec:
+      containers:
+        - name: ttms-container
+          image: princeram/timetable:latest
+          ports:
+            - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: ttms-configmap
