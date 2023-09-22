@@ -1,15 +1,11 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: ReplicationController
 metadata:
-  name: ttms-deployment-ns
-  namespace: ttms-dev  # Namespace to sepcify to create the deployment
+  name: ttms-rc
   labels:
     app: ttms
 spec:
   replicas: 3
-  selector:
-    matchLabels:
-      app: ttms
   template:
     metadata:
       name: ttms-pod
@@ -18,7 +14,7 @@ spec:
     spec:
       containers:
         - name: ttms-container
-          image: princeram/timetable:latest
+          image: princeram/ttms:latest
           ports:
             - containerPort: 80
           env:
