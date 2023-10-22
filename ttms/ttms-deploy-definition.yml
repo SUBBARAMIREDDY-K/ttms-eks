@@ -21,8 +21,24 @@ spec:
           image: princeram/timetable:latest
           ports:
             - containerPort: 80
-          envFrom:
-            - configMapRef:
-                name: ttms-configmap
-            - SecretRef:
-                name: ttms-secret
+          env:
+            - name: HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: ttms-configmap
+                  key: HOST
+            - name: USER
+              valueFrom:
+                configMapKeyRef:
+                  name: ttms-configmap
+                  key: USER
+            - name: PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: ttms-secret
+                  key: PASSWORD
+            - name: DB
+              valueFrom:
+                secretKeyRef:
+                  name: ttms-secret
+                  key: DB
